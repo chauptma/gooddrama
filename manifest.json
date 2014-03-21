@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+
+  "name": "GoodDrama Extension",
+  "description": "No more clicking and waiting for the next parts. All parts are loaded into tabs for easy access",
+  "version": "1.0",
+  "background": {
+      "page": "background.html"
+   },
+  "permissions": [
+    "http://www.gooddrama.net/"
+  ],
+  "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "jquery-ui.min.css" ],
+      "js": [ "jquery.min.js", "jquery-ui.min.js" , "content_script.js"],
+      "matches": [ "http://www.gooddrama.net/*", "https://www.gooddrama.net/*" ]
+   },
+   {
+      "js": [ "setaga/inject.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "icons": { 
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png" 
+    }
+}
